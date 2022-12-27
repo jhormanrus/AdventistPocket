@@ -13,9 +13,9 @@ class _BibleRouteState extends ConsumerState<BibleRoute> {
   @override
   void initState() {
     super.initState();
-    BibleApiService().getBooks().then((value) => {
-          print(value.body),
-        });
+    BibleApiService().getBooks().then((value) {
+      print(value);
+    });
   }
 
   @override
