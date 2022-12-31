@@ -1,3 +1,4 @@
+import 'package:adventist_pocket/models/book.dart';
 import 'package:adventist_pocket/services/bible_api_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -10,19 +11,25 @@ class BibleRoute extends ConsumerStatefulWidget {
 }
 
 class _BibleRouteState extends ConsumerState<BibleRoute> {
+  List<Book> _books = [];
+
   @override
   void initState() {
     super.initState();
-    BibleApiService().getBooks().then((value) {
-      print(value);
+    BibleApiService().getBooks().then((books) {
+      setState(() {
+        _books = books;
+      });
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child: Text('xde'),
+        child: ListView(
+          children: _books.map((book) => Text(book.name)).toList(),
+        ),
       ),
     );
   }
