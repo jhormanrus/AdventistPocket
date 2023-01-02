@@ -8,7 +8,6 @@ class Logger extends ProviderObserver {
     Object? newValue,
     ProviderContainer container,
   ) {
-    print(
-        '${provider.name ?? provider.runtimeType} = [prev: $previousValue, next: $newValue]');
+    print('${provider.name ?? provider.runtimeType} = [prev: $previousValue, next: $newValue]');
   }
 }

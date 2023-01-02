@@ -1,6 +1,7 @@
 import 'package:adventist_pocket/config/logger.dart';
 import 'package:adventist_pocket/routes/bible_book.dart';
 import 'package:adventist_pocket/routes/bible_chapter.dart';
+import 'package:adventist_pocket/routes/bible_verse.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/bible/book': (context) => const BibleBook(),
         '/bible/book/chapter': (context) => const BibleChapter(),
+        '/bible/book/chapter/verse': (context) => const BibleVerse(),
       },
     );
   }

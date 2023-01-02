@@ -41,7 +41,8 @@ class _BibleChapterState extends ConsumerState<BibleChapter> {
             return Card(
               child: InkWell(
                 onTap: () {
-                  print(_chapters[index].reference);
+                  ref.read(chapterProvider.notifier).state = _chapters[index].number;
+                  Navigator.pushNamed(context, '/bible/book/chapter/verse');
                 },
                 child: Center(
                   child: Text(_chapters[index].number),
