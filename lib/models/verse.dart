@@ -1,9 +1,5 @@
 import 'dart:convert';
 
-Verse verseFromJson(String str) => Verse.fromJson(json.decode(str));
-
-String verseToJson(Verse data) => json.encode(data.toJson());
-
 List<Verse> versesFromJson(String str) => List<Verse>.from(json.decode(str).map((x) => Verse.fromJson(x)));
 
 String versesToJson(List<Verse> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));

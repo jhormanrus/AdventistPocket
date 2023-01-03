@@ -33,10 +33,10 @@ class BibleApiService {
     }
   }
 
-  Future<Verse> getVerse(String bookId, String chapterId, String verseId) async {
+  Future<List<Verse>> getVerse(String bookId, String chapterId, String verseId) async {
     final response = await http.get(Uri.parse('$baseUrl/book/$bookId/chapter/$chapterId/verse/$verseId'));
     if (response.statusCode == 200) {
-      return verseFromJson(response.body);
+      return versesFromJson(response.body);
     } else {
       throw Exception('Failed to load verse');
     }
